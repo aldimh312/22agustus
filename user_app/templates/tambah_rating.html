@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="codepixer">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>RATING MUSEUM KABUPATEN SUBANG</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+  <!--
+			CSS
+			============================================= -->
+  <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+  
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("{% static 'img/museum.png' %}") no-repeat center center;
+      background-size: cover;
+      background-blend-mode: multiply;
+      opacity: 0.7; /* Nilai opacity yang mengatur tingkat transparansi dan kegelapan */
+    }
+  </style>
+
+</head>
+
+<body>
+  <section id="header" class="pt-2 pb-2" style="background-color: #BFA87F;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 animate-fade-in">
+          <a class="navbar-brand fs-2 p-0 fw-bold text-white" href="index.html">
+            <img src="{% static 'img/logomuseum.png' %}" class="img-museum" alt="Logo Museum">
+            <span class="d-inline-block ml-2">Museum Kabupaten Subang</span>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <div class="container justify-content-center mx-auto dark-background">
+    <div class="col-md-12">
+      <h3 class="text-center text-white mt-6 animate-fade-in mb-2" style="font-size:1.8rem;">Rating Museum <BR>Kabupaten Subang </h3>
+    </div>
+    <div class="container justify-content-center d-flex">
+      <div class="card" style="width: 600px; height: 368px;">
+        <div class="card-body justify-content-center">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="{{ form.bintang.id_for_label }}" style="color: black;">{{ form.bintang.label }}</label>
+              {{ form.bintang }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.pesan.id_for_label }}" style="color: black;">{{ form.pesan.label }}</label>
+              {{ form.pesan }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.kesan.id_for_label }}" style="color: black;">{{ form.kesan.label }}</label>
+              {{ form.kesan }}
+            </div>
+            <button type="submit" href="{% static 'terimakasih.html' %}" class="btn btn-primary mt-0" style="width: 65px; height: 35px;">Kirim</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	
+  <script src="{% static 'js/easing.min.js' %}"></script>
+  <script src="{% static 'js/hoverIntent.js' %}"></script>
+  <script src="{% static 'js/superfish.min.js' %}"></script>
+  <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'js/justified.min.js' %}"></script>
+  <script src="{% static 'js/jquery.sticky.js' %}"></script>
+  <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'js/parallax.min.js' %}"></script>
+  <script src="{% static 'js/mail-script.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,12 @@
+@media (max-width:399px) {
+    .carousel-inner {
+        padding: 4rem 0 5rem;
+        margin-bottom: -5rem;
+    }
+
+    .koleksi {
+        padding: 0;
+        margin: 0;
+    }
+}
+

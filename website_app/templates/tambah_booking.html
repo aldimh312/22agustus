@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+  <head>
+    <!-- Mobile Specific Meta -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png" />
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer" />
+    <!-- Meta Description -->
+    <meta name="description" content="" />
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="" />
+    <!-- meta character set -->
+    <meta charset="UTF-8" />
+    <!-- Site Title -->
+    <title>MUSEUM KABUPATEN SUBANG</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
+      rel="stylesheet"
+    />
+    <!--
+			CSS
+			============================================= -->
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'website_app/css/jquery-ui.css' %}"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'website_app/js/jquery-ui.js' %}"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("{% static 'img/museum.png' %}") no-repeat;
+        background-size: cover;
+        background-blend-mode: multiply;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id="header" class="pt-2 pb-2" style="background-color: #bfa87f">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 animate-fade-in">
+            <a class="navbar-brand fs-2 p-0 fw-bold text-white" href="/">
+              <img
+                src="{% static 'img/logomuseum.png' %}"
+                class="img-museum"
+                alt="Logo Museum"
+              />
+              <span class="d-inline-block ml-2">Museum Kabupaten Subang</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container justify-content-center mx-auto dark-background">
+      <div class="col-md-12">
+        <h3
+          class="text-center text-white mt-4 mb-2 animate-fade-in"
+          style="font-size: 1.6rem; padding-top: 200px"
+        >
+          Pengajuan Booking <br />
+          Museum Kabupaten Subang
+        </h3>
+      </div>
+      <div class="container justify-content-center d-flex">
+        <div class="card" style="width: 600px; height: 600px">
+          <div class="card-body justify-content">
+            {% if messages %}
+            <div
+              class="alert alert-primary alert-dismissible fade show"
+              role="alert"
+              style="max-height: 50px"
+            >
+              <strong>
+                {% for message in messages %} {{ message }} {% endfor %}
+              </strong>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endif %}
+            <form method="post">
+              {% csrf_token %}
+              <h3>Ketentuan</h3>
+
+              <li>Reservasi maksimal tiga hari sebelum kunjungan (H-3)</li>
+              <li>Selalu menjaga kebersihan di area museum</li>
+              <li>Membawa surat kunjungan pada saat berkunjung ke museum</li>
+
+              <br />
+              <tr>
+                <th>Tanggal Pengajuan</th>
+                <td>{{ form.tanggal_pengajuan }}</td>
+              </tr>
+              <br />
+              <tr>
+                <th>Tanggal kunjungan ke Museum</th>
+                <td>{{ form.tanggal_kunjungan }}</td>
+              </tr>
+              <br />
+              <tr>
+                <th>No HP</th>
+                <td>{{ form.no_hp}}</td>
+              </tr>
+              <br />
+              <tr>
+                <th>Asal Rombongan</th>
+                <td>{{ form.asal_rombongan }}</td>
+              </tr>
+              <br />
+              <tr>
+                <th>Jumlah Rombongan</th>
+                <td>{{ form.jumlah_rombongan }}</td>
+              </tr>
+
+              <button
+                type="submit"
+                class="btn btn-primary mt-3"
+                style="width: 100px; height: 35px"
+              >
+                Kirim
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"
+    ></script>
+
+    <script src="{% static 'js/easing.min.js' %}"></script>
+    <script src="{% static 'js/hoverIntent.js' %}"></script>
+    <script src="{% static 'js/superfish.min.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/justified.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/parallax.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
